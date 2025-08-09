@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>互動教學模組：打造你的簡報故事力</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chosen Palette: Warm Neutrals (Slate, Amber, Stone) -->
+    <!-- Application Structure Plan: A single-page, vertical-scrolling interactive lesson. The structure includes: 1) An introduction to establish the 'why', 2) An interactive core section to explore the 'Three-Act Structure' via clickable cards, 3) An interactive quiz for knowledge reinforcement, and 4) A conclusion with key takeaways. This structure transforms the linear script into a more engaging, self-paced learning module, allowing users to both follow a guided path and explore concepts freely. -->
+    <!-- Visualization & Content Choices: 1. Three-Act Structure (Report Info) -> Goal: Organize/Inform -> Viz: Interactive HTML/CSS cards -> Interaction: Click to reveal details -> Justification: Breaks down the core framework into digestible, user-controlled chunks, enhancing learning and retention. -> Method: Vanilla JS, Tailwind. 2. Quiz (Report Info) -> Goal: Test/Engage -> Viz: Styled HTML radio buttons -> Interaction: Submit button with immediate feedback -> Justification: Active recall is more effective for learning than passive reading. -> Method: Vanilla JS, Tailwind. 3. Lesson Pacing (Report Info) -> Goal: Inform/Engage -> Viz: Dynamic top progress bar -> Interaction: Updates on scroll -> Justification: Provides a sense of progress and visually connects the app to the original 20-minute lesson structure. -> Method: Vanilla JS. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', 'Noto Sans TC', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .active-nav {
+            color: #f59e0b;
+            font-weight: 600;
+        }
+        .content-card {
+            transition: all 0.3s ease-in-out;
+            border: 1px solid transparent;
+        }
+        .active-card {
+            border-color: #f59e0b;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+        }
+        .quiz-option.correct {
+            background-color: #dcfce7;
+            border-color: #22c55e;
+        }
+        .quiz-option.incorrect {
+            background-color: #fee2e2;
+            border-color: #ef4444;
+        }
+        .progress-bar-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 50;
+            background-color: #f1f5f9;
+        }
+        .progress-bar {
+            height: 4px;
+            background-color: #f59e0b;
+            width: 0%;
+            transition: width 0.2s ease-out;
+        }
+    </style>
+</head>
+<body class="bg-stone-50 text-slate-800">
+
+    <div class="progress-bar-container">
+        <div id="progressBar" class="progress-bar"></div>
+    </div>
+
+    <header class="bg-white/80 backdrop-blur-sm sticky top-0 z-40 shadow-sm">
+        <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex-shrink-0">
+                    <h1 class="text-xl font-bold text-slate-900">簡報故事力</h1>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#intro" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-slate-700 hover:text-amber-500">故事的起點</a>
+                        <a href="#framework" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-slate-700 hover:text-amber-500">故事三部曲</a>
+                        <a href="#quiz" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-slate-700 hover:text-amber-500">小試身手</a>
+                        <a href="#summary" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-slate-700 hover:text-amber-500">總結與作業</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20">
+
+        <section id="intro" class="mb-20 scroll-mt-20">
+            <h2 class="text-3xl md:text-4xl font-extrabold text-center text-slate-900 mb-4">故事的起點：為何我們需要故事？</h2>
+            <p class="text-center text-lg text-slate-600 max-w-3xl mx-auto mb-12">
+                每一場成功的簡報，背後都隱藏著一個動人的故事。它能瞬間抓住聽眾的注意力，引發共鳴，並讓你的觀點深植人心。讓我們從一個對比鮮明的場景開始，感受故事的強大力量。
+            </p>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-white p-8 rounded-xl shadow-md border border-slate-200">
+                    <h3 class="text-2xl font-bold text-red-600 mb-4">❌ 無效的報告</h3>
+                    <p class="text-slate-700">一位提案者上台，投影片上充滿密密麻麻的文字和複雜圖表。他照本宣科，講得辛苦，台下聽得更辛苦。20分鐘後，聽眾只記得一堆模糊的關鍵詞，卻完全想不起提案的具體內容。這是一場資訊的堆砌，而非有效的溝通。</p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-md border-2 border-amber-400">
+                    <h3 class="text-2xl font-bold text-green-600 mb-4">✅ 動人的故事</h3>
+                    <p class="text-slate-700">另一位提案者上台，他沒有馬上講數據，而是說：「想像一下，週末早晨，你正準備享受一杯咖啡，卻發現咖啡豆用完了...」他用一個簡單的生活場景，瞬間拉近了與聽眾的距離。接著，他才一步步將產品的價值融入這個故事中，讓每個人都感同身受。</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="framework" class="mb-20 scroll-mt-20">
+            <h2 class="text-3xl md:text-4xl font-extrabold text-center text-slate-900 mb-4">簡報故事化的三部曲</h2>
+            <p class="text-center text-lg text-slate-600 max-w-3xl mx-auto mb-12">
+                現在，讓我們來拆解打造一場動人簡報的核心架構——故事三部曲。這個架構能幫助你將雜亂的資訊，組織成一個有邏輯、有情感、有說服力的故事。點擊下方的卡片，開始探索每一個步驟的奧秘吧！
+            </p>
+            <div class="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-8 mb-8">
+                <div id="card-1" class="content-card w-full md:w-1/3 p-6 bg-white rounded-xl shadow-sm cursor-pointer hover:shadow-lg hover:border-amber-400">
+                    <h3 class="text-xl font-bold text-center text-slate-800">第一部曲：設定情境與主角</h3>
+                </div>
+                <div id="card-2" class="content-card w-full md:w-1/3 p-6 bg-white rounded-xl shadow-sm cursor-pointer hover:shadow-lg hover:border-amber-400">
+                    <h3 class="text-xl font-bold text-center text-slate-800">第二部曲：製造衝突與解方</h3>
+                </div>
+                <div id="card-3" class="content-card w-full md:w-1/3 p-6 bg-white rounded-xl shadow-sm cursor-pointer hover:shadow-lg hover:border-amber-400">
+                    <h3 class="text-xl font-bold text-center text-slate-800">第三部曲：展望未來與行動</h3>
+                </div>
+            </div>
+
+            <div id="contentDisplay" class="bg-white p-8 rounded-xl shadow-inner min-h-[20rem] border border-slate-200">
+                <p class="text-center text-slate-500">請點擊上方的任一部曲，查看詳細內容。</p>
+            </div>
+        </section>
+
+        <section id="quiz" class="mb-20 scroll-mt-20">
+            <h2 class="text-3xl md:text-4xl font-extrabold text-center text-slate-900 mb-4">小試身手</h2>
+            <p class="text-center text-lg text-slate-600 max-w-3xl mx-auto mb-12">
+                您已經掌握了故事三部曲的精髓，現在來做個簡單的小測驗，看看您是否能準確判斷出這些句子分別屬於故事的哪個部分！
+            </p>
+            <div class="max-w-2xl mx-auto bg-white p-8 rounded-xl shadow-md border border-slate-200">
+                <div class="mb-6">
+                    <p class="font-semibold text-lg mb-2">問題 1：「每當專案截止日臨近，我們總是手忙腳亂...」</p>
+                    <div class="space-y-2">
+                        <label class="quiz-option block p-3 border-2 border-slate-200 rounded-lg cursor-pointer hover:bg-amber-50">
+                            <input type="radio" name="q1" value="1" class="mr-2"> 設定情境與主角
+                        </label>
+                        <label class="quiz-option block p-3 border-2 border-slate-200 rounded-lg cursor-pointer hover:bg-amber-50">
+                            <input type="radio" name="q1" value="2" class="mr-2"> 製造衝突與解方
+                        </label>
+                        <label class="quiz-option block p-3 border-2 border-slate-200 rounded-lg cursor-pointer hover:bg-amber-50">
+                            <input type="radio" name="q1" value="3" class="mr-2"> 展望未來與行動
+                        </label>
+                    </div>
+                </div>
+                <div class="mb-6">
+                    <p class="font-semibold text-lg mb-2">問題 2：「使用我們的軟體後，你將能有效提升 30% 的工作效率！」</p>
+                     <div class="space-y-2">
+                        <label class="quiz-option block p-3 border-2 border-slate-200 rounded-lg cursor-pointer hover:bg-amber-50">
+                            <input type="radio" name="q2" value="1" class="mr-2"> 設定情境與主角
+                        </label>
+                        <label class="quiz-option block p-3 border-2 border-slate-200 rounded-lg cursor-pointer hover:bg-amber-50">
+                            <input type="radio" name="q2" value="2" class="mr-2"> 製造衝突與解方
+                        </label>
+                        <label class="quiz-option block p-3 border-2 border-slate-200 rounded-lg cursor-pointer hover:bg-amber-50">
+                            <input type="radio" name="q2" value="3" class="mr-2"> 展望未來與行動
+                        </label>
+                    </div>
+                </div>
+                <div class="mb-8">
+                    <p class="font-semibold text-lg mb-2">問題 3：「現在，就讓我們一起透過這個新工具，改變我們的工作方式吧！」</p>
+                     <div class="space-y-2">
+                        <label class="quiz-option block p-3 border-2 border-slate-200 rounded-lg cursor-pointer hover:bg-amber-50">
+                            <input type="radio" name="q3" value="1" class="mr-2"> 設定情境與主角
+                        </label>
+                        <label class="quiz-option block p-3 border-2 border-slate-200 rounded-lg cursor-pointer hover:bg-amber-50">
+                            <input type="radio" name="q3" value="2" class="mr-2"> 製造衝突與解方
+                        </label>
+                        <label class="quiz-option block p-3 border-2 border-slate-200 rounded-lg cursor-pointer hover:bg-amber-50">
+                            <input type="radio" name="q3" value="3" class="mr-2"> 展望未來與行動
+                        </label>
+                    </div>
+                </div>
+                <button id="submitQuiz" class="w-full bg-amber-500 text-white font-bold py-3 px-4 rounded-lg hover:bg-amber-600 transition-colors">提交答案</button>
+                <div id="quizResult" class="mt-4 text-center font-semibold"></div>
+            </div>
+        </section>
+
+        <section id="summary" class="scroll-mt-20">
+            <h2 class="text-3xl md:text-4xl font-extrabold text-center text-slate-900 mb-4">總結與延伸作業</h2>
+            <p class="text-center text-lg text-slate-600 max-w-3xl mx-auto mb-12">
+                恭喜你完成了今天的學習！簡報的核心不在於華麗的技巧，而在於清晰的邏輯和動人的情感。請永遠記住，你不是在報告，你是在說一個值得被聽見的故事。
+            </p>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-white p-8 rounded-xl shadow-md border border-slate-200">
+                    <h3 class="text-2xl font-bold text-slate-800 mb-4">三大核心提問</h3>
+                    <p class="text-slate-700 mb-4">從現在開始，準備簡報時，請先問自己這三個問題：</p>
+                    <ul class="list-disc list-inside space-y-2 text-slate-700">
+                        <li>我的故事主角是誰？我能用一句話打動他嗎？</li>
+                        <li>他遇到了什麼問題？我的解決方案是什麼？</li>
+                        <li>我希望聽眾聽完後，採取什麼行動？</li>
+                    </ul>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-md border border-slate-200">
+                    <h3 class="text-2xl font-bold text-slate-800 mb-4">你的延伸作業</h3>
+                    <p class="text-slate-700">今天的課程結束後，請回去思考：如果你要向朋友介紹你最喜歡的一本書，你會如何運用「簡報故事化的三部曲」？請嘗試用 30 秒的時間，說出你的簡短版本，並分享給身邊的朋友聽。</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const contentData = {
+                'card-1': {
+                    title: '第一部曲：設定情境與主角',
+                    description: '故事的開頭，就是要讓聽眾能夠「代入」。你必須先描繪一個情境，設定一個「主角」。這個主角可以是你的客戶、你的團隊，甚至是聽眾自己。關鍵是讓聽眾感到「這跟我有關」。',
+                    example: {
+                        title: '案例：健身App',
+                        text: '「現代人生活忙碌，下班後已經很累了，但又希望能維持健康的體態。我們的App就是為了解決這個問題，幫助那些時間有限、但有健身熱情的上班族。」'
+                    },
+                    activity: {
+                        title: '換你試試看！',
+                        text: '如果你要介紹一個新的「自動烹飪機器人」，你會如何設定開頭的情境與主角呢？'
+                    }
+                },
+                'card-2': {
+                    title: '第二部曲：製造衝突與解決方案',
+                    description: '有了主角和情境，故事就要有「衝突」，也就是問題。接著，你才提出你的「解決方案」。這個部分就是要明確告訴大家：我們遇到了什麼困難？我們的產品或想法，是如何漂亮地解決這個困難的？',
+                    example: {
+                        title: '案例：健身App',
+                        text: '「但是，市面上許多健身App都要求長時間的訓練，或需要複雜的器材，這對於忙碌的上班族來說根本不切實際。我們的解決方案是，透過 AI 智慧排程，讓你每天只要花 15 分鐘，就能達到有效的運動效果。」'
+                    },
+                    activity: {
+                        title: '換你試試看！',
+                        text: '請為你的「自動烹飪機器人」，設定一個它要解決的「衝突」是什麼？例如：想吃健康餐，但沒時間備料？'
+                    }
+                },
+                'card-3': {
+                    title: '第三部曲：展望未來與行動呼籲',
+                    description: '故事的結尾，不是簡報的結束，而是故事的延續。你需要為聽眾描繪一個「美好的未來」，並提出一個明確的「行動呼籲」（Call to Action），讓聽眾知道下一步可以怎麼做。',
+                    example: {
+                        title: '案例：健身App',
+                        text: '「想像一下，每天多出 15 分鐘的休息時間，同時又能保持最佳狀態。現在，只要掃描這個 QR Code，就可以立即體驗我們的 App，加入更健康的生活行列！」'
+                    },
+                    activity: {
+                        title: '換你試試看！',
+                        text: '你會如何為你的「自動烹飪機器人」設計一個吸引人的行動呼籲？'
+                    }
+                }
+            };
+
+            const contentDisplay = document.getElementById('contentDisplay');
+            const cards = document.querySelectorAll('.content-card');
+
+            cards.forEach(card => {
+                card.addEventListener('click', () => {
+                    cards.forEach(c => c.classList.remove('active-card'));
+                    card.classList.add('active-card');
+                    
+                    const data = contentData[card.id];
+                    contentDisplay.innerHTML = `
+                        <h3 class="text-2xl font-bold text-slate-900 mb-3">${data.title}</h3>
+                        <p class="text-slate-700 mb-6">${data.description}</p>
+                        <div class="bg-amber-50 p-4 rounded-lg mb-6 border-l-4 border-amber-400">
+                            <h4 class="font-bold text-slate-800">${data.example.title}</h4>
+                            <p class="text-slate-600 italic">“${data.example.text}”</p>
+                        </div>
+                        <div class="bg-slate-100 p-4 rounded-lg">
+                            <h4 class="font-bold text-slate-800">${data.activity.title}</h4>
+                            <p class="text-slate-600">${data.activity.text}</p>
+                        </div>
+                    `;
+                });
+            });
+
+            const submitQuizBtn = document.getElementById('submitQuiz');
+            const quizResult = document.getElementById('quizResult');
+            const correctAnswers = { q1: '1', q2: '2', q3: '3' };
+
+            submitQuizBtn.addEventListener('click', () => {
+                let score = 0;
+                const totalQuestions = Object.keys(correctAnswers).length;
+
+                for (const q in correctAnswers) {
+                    const options = document.querySelectorAll(`input[name="${q}"]`);
+                    let userAnswer = null;
+                    options.forEach(option => {
+                        const label = option.parentElement;
+                        label.classList.remove('correct', 'incorrect');
+                        if (option.checked) {
+                            userAnswer = option.value;
+                        }
+                    });
+
+                    if (userAnswer) {
+                        const isCorrect = userAnswer === correctAnswers[q];
+                        const selectedLabel = document.querySelector(`input[name="${q}"][value="${userAnswer}"]`).parentElement;
+                        if (isCorrect) {
+                            score++;
+                            selectedLabel.classList.add('correct');
+                        } else {
+                            selectedLabel.classList.add('incorrect');
+                            const correctLabel = document.querySelector(`input[name="${q}"][value="${correctAnswers[q]}"]`).parentElement;
+                            correctLabel.classList.add('correct');
+                        }
+                    }
+                }
+                
+                quizResult.textContent = `你答對了 ${score} / ${totalQuestions} 題！`;
+            });
+
+            const progressBar = document.getElementById('progressBar');
+            const body = document.body;
+            const html = document.documentElement;
+
+            function updateProgressBar() {
+                const scrollTop = body.scrollTop || html.scrollTop;
+                const scrollHeight = html.scrollHeight - html.clientHeight;
+                const scrolled = (scrollTop / scrollHeight) * 100;
+                progressBar.style.width = scrolled + '%';
+            }
+            
+            window.addEventListener('scroll', updateProgressBar);
+            
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('section');
+
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (pageYOffset >= sectionTop - 80) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active-nav');
+                    if (link.getAttribute('href').includes(current)) {
+                        link.classList.add('active-nav');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
