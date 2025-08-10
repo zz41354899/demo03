@@ -76,45 +76,91 @@
         id: 'template-a',
         name: '簡約風格模板',
         blocks: [
-          { type: 'hero', title: '您的產品標題', subtitle: '簡潔有力的次標題，吸引目光。', imageUrl: 'https://placehold.co/1200x600/1e293b/ffffff?text=主圖區', buttonText: '立即購買', buttonLink: 'https://www.google.com', bgColor: 'bg-slate-100', textColor: 'text-slate-800' },
+          { type: 'hero', title: '您的產品標題', subtitle: '簡潔有力的次標題，吸引目光。', imageUrl: 'https://placehold.co/1200x600/1e293b/ffffff?text=主圖區', buttonText: '立即購買', buttonLink: 'https://www.google.com', bgColor: 'bg-slate-100', textColor: 'text-slate-800', layout: 'centered' },
+          { type: 'image_with_text', title: '核心功能介紹', content: '提供智慧化解決方案，讓您的生活更輕鬆。', imageUrl: 'https://placehold.co/600x400/334155/ffffff?text=功能圖', layout: 'image-left', bgColor: 'bg-slate-50', textColor: 'text-slate-800' },
           { type: 'text', title: '為什麼選擇我們？', content: '我們的產品專為解決您的痛點而設計，提供無與倫比的體驗與價值。', bgColor: 'bg-white', textColor: 'text-slate-800' },
-          { type: 'image_with_text', title: '核心功能介紹', content: '提供智慧化解決方案，讓您的生活更輕鬆。', imageUrl: 'https://placehold.co/600x400/334155/ffffff?text=功能圖', reverse: false, bgColor: 'bg-slate-50', textColor: 'text-slate-800' },
-          { type: 'cta', title: '把握機會，立即體驗！', buttonText: '點我了解更多', buttonLink: 'https://www.google.com', bgColor: 'bg-indigo-600', textColor: 'text-white' },
+          { type: 'image_with_text', title: '卓越品質保證', content: '我們專注於每個細節，為您打造無可挑剔的產品體驗。', imageUrl: 'https://placehold.co/600x400/1e293b/ffffff?text=品質保證', layout: 'image-right', bgColor: 'bg-slate-50', textColor: 'text-slate-800' },
+          { type: 'cta', title: '把握機會，立即體驗！', buttonText: '點我了解更多', buttonLink: 'https://www.google.com', bgColor: 'bg-indigo-600', textColor: 'text-white', layout: 'centered' },
         ],
       },
       {
         id: 'template-b',
         name: '專業風格模板',
         blocks: [
-          { type: 'hero', title: '專業解決方案，開啟新篇章。', subtitle: '專為企業量身打造，提升您的業務效率。', imageUrl: 'https://placehold.co/1200x600/374151/ffffff?text=高階主圖', buttonText: '聯絡我們', buttonLink: 'https://www.google.com', bgColor: 'bg-gray-800', textColor: 'text-white' },
+          { type: 'hero', title: '專業解決方案，開啟新篇章。', subtitle: '專為企業量身打造，提升您的業務效率。', imageUrl: 'https://placehold.co/1200x600/374151/ffffff?text=高階主圖', buttonText: '聯絡我們', buttonLink: 'https://www.google.com', bgColor: 'bg-gray-800', textColor: 'text-white', layout: 'image-left' },
           { type: 'text', title: '客戶見證', content: '「這是我用過最好的產品，它徹底改變了我的工作方式。」- 某知名企業CEO', bgColor: 'bg-white', textColor: 'text-gray-800' },
-          { type: 'image_with_text', title: '數據化分析', content: '透過數據驅策決策，為您的業務成長賦能。', imageUrl: 'https://placehold.co/600x400/4b5563/ffffff?text=數據圖', reverse: true, bgColor: 'bg-gray-50', textColor: 'text-gray-800' },
-          { type: 'cta', title: '預約免費諮詢', buttonText: '立即預約', buttonLink: 'https://www.google.com', bgColor: 'bg-teal-600', textColor: 'text-white' },
+          { type: 'image_with_text', title: '數據化分析', content: '透過數據驅策決策，為您的業務成長賦能。', imageUrl: 'https://placehold.co/600x400/4b5563/ffffff?text=數據圖', layout: 'image-left', bgColor: 'bg-gray-50', textColor: 'text-gray-800' },
+          { type: 'cta', title: '預約免費諮詢', buttonText: '立即預約', buttonLink: 'https://www.google.com', bgColor: 'bg-teal-600', textColor: 'text-white', layout: 'centered' },
+          { type: 'text', title: '我們的服務理念', content: '我們致力於提供卓越的服務，以滿足您的所有需求，確保您的成功。', bgColor: 'bg-white', textColor: 'text-gray-800' },
+          { type: 'image_with_text', title: '全方位服務', content: '我們的服務涵蓋每個環節，確保您的滿意度。', imageUrl: 'https://placehold.co/600x400/374151/ffffff?text=全方位服務', layout: 'image-right', bgColor: 'bg-gray-50', textColor: 'text-gray-800' },
+        ],
+      },
+      {
+        id: 'template-c',
+        name: '現代簡潔模板',
+        blocks: [
+          { type: 'hero', title: '創新，從這裡開始。', subtitle: '以簡潔設計，賦予品牌全新生命。', imageUrl: 'https://placehold.co/1200x600/f1f5f9/64748b?text=現代設計', buttonText: '探索更多', buttonLink: 'https://www.google.com', bgColor: 'bg-slate-100', textColor: 'text-slate-800', layout: 'text-overlay' },
+          { type: 'text', title: '我們的願景', content: '透過創新技術，我們致力於改變世界，創造更美好的未來。', bgColor: 'bg-slate-50', textColor: 'text-slate-800' },
+          { type: 'image_with_text', title: '極致工藝，卓越品質。', content: '我們專注於每個細節，為您打造無可挑剔的產品體驗。', imageUrl: 'https://placehold.co/600x400/e2e8f0/475569?text=品質保證', layout: 'image-left', bgColor: 'bg-white', textColor: 'text-slate-800' },
+          { type: 'cta', title: '加入我們，共創未來！', buttonText: '立即加入', buttonLink: 'https://www.google.com', bgColor: 'bg-gray-900', textColor: 'text-white', layout: 'centered' },
+        ],
+      },
+      {
+        id: 'template-d',
+        name: '活潑繽紛模板',
+        blocks: [
+          { type: 'hero', title: '讓生活充滿色彩！', subtitle: '繽紛設計，點亮您的每一天。', imageUrl: 'https://placehold.co/1200x600/fde047/f97316?text=繽紛主圖', buttonText: '開始探索', buttonLink: 'https://www.google.com', bgColor: 'bg-yellow-200', textColor: 'text-orange-800', layout: 'image-right' },
+          { type: 'text', title: '獨特風格，隨心所欲', content: '我們的產品擁有多種色彩與組合，讓您展現最獨特的自己。', bgColor: 'bg-orange-50', textColor: 'text-orange-900' },
+          { type: 'image_with_text', title: '創意無限，樂趣加倍！', content: '結合趣味與實用，為您帶來前所未有的使用體驗。', imageUrl: 'https://placehold.co/600x400/f472b6/ec4899?text=創意無限', layout: 'image-left', bgColor: 'bg-pink-100', textColor: 'text-pink-800' },
+          { type: 'cta', title: '立即選購您喜愛的款式！', buttonText: '前往商店', buttonLink: 'https://www.google.com', bgColor: 'bg-purple-600', textColor: 'text-white', layout: 'centered' },
+        ],
+      },
+      {
+        id: 'template-e',
+        name: '專業簡約模板',
+        blocks: [
+          { type: 'hero', title: '為您的業務提供強大後盾。', subtitle: '簡化工作流程，提升團隊效能。', imageUrl: 'https://placehold.co/1200x600/f8fafc/0f172a?text=專業解決方案', buttonText: '了解更多', buttonLink: 'https://www.google.com', bgColor: 'bg-slate-50', textColor: 'text-slate-900', layout: 'centered' },
+          { type: 'image_with_text', title: '高效協作，輕鬆管理。', content: '一套完整的工具，讓團隊成員無縫溝通，專案管理井然有序。', imageUrl: 'https://placehold.co/600x400/cbd5e1/475569?text=團隊協作', layout: 'image-right', bgColor: 'bg-slate-100', textColor: 'text-slate-900' },
+          { type: 'text', title: '我們的優勢', content: '透過先進的技術與優質的服務，我們確保您的業務始終保持領先地位。', bgColor: 'bg-white', textColor: 'text-slate-900' },
+          { type: 'image_with_text', title: '數據洞察，智慧決策。', content: '利用強大的數據分析工具，讓您的每個決策都更有依據。', imageUrl: 'https://placehold.co/600x400/cbd5e1/475569?text=數據洞察', layout: 'image-left', bgColor: 'bg-slate-100', textColor: 'text-slate-900' },
+          { type: 'cta', title: '開始您的免費試用！', buttonText: '立即註冊', buttonLink: 'https://www.google.com', bgColor: 'bg-indigo-700', textColor: 'text-white', layout: 'centered' },
+        ],
+      },
+      {
+        id: 'template-f',
+        name: '創意藝術模板',
+        blocks: [
+          { type: 'hero', title: '釋放你的無限創意。', subtitle: '讓靈感在畫布上自由揮灑。', imageUrl: 'https://placehold.co/1200x600/155e75/ecfdf5?text=創意主圖', buttonText: '尋找靈感', buttonLink: 'https://www.google.com', bgColor: 'bg-emerald-700', textColor: 'text-emerald-50', layout: 'image-left' },
+          { type: 'text', title: '藝術，讓生活更美好。', content: '我們相信每個人心中都有一位藝術家，我們的工具能幫助你將想法變成現實。', bgColor: 'bg-teal-50', textColor: 'text-teal-900' },
+          { type: 'image_with_text', title: '豐富工具，無限可能。', content: '從數位繪圖到平面設計，我們提供所有你需要的工具。', imageUrl: 'https://placehold.co/600x400/99f6e4/134e4a?text=藝術工具', layout: 'image-right', bgColor: 'bg-teal-100', textColor: 'text-teal-900' },
+          { type: 'text', title: '加入社群，互相啟發。', content: '在我們的社群中，你可以與來自世界各地的藝術家交流，分享你的作品。', bgColor: 'bg-teal-50', textColor: 'text-teal-900' },
+          { type: 'cta', title: '立即下載，開啟你的創作之旅！', buttonText: '免費下載', buttonLink: 'https://www.google.com', bgColor: 'bg-indigo-500', textColor: 'text-white', layout: 'centered' },
         ],
       },
     ];
 
     // 新增區塊的預設內容
     const defaultBlocks = {
-        hero: { type: 'hero', title: '新的主圖區標題', subtitle: '新增一個強而有力的次標題', imageUrl: 'https://placehold.co/1200x600/1e293b/ffffff?text=新的主圖區', buttonText: '立即行動', buttonLink: 'https://www.google.com', bgColor: 'bg-slate-100', textColor: 'text-slate-800' },
+        hero: { type: 'hero', title: '新的主圖區標題', subtitle: '新增一個強而有力的次標題', imageUrl: 'https://placehold.co/1200x600/1e293b/ffffff?text=新的主圖區', buttonText: '立即行動', buttonLink: 'https://www.google.com', bgColor: 'bg-slate-100', textColor: 'text-slate-800', layout: 'centered' },
         text: { type: 'text', title: '新增的文字區塊', content: '請在此輸入您的詳細描述。', bgColor: 'bg-white', textColor: 'text-slate-800' },
-        image_with_text: { type: 'image_with_text', title: '新增的功能區塊', content: '介紹一個新功能或特色。', imageUrl: 'https://placehold.co/600x400/334155/ffffff?text=新增功能', reverse: false, bgColor: 'bg-slate-50', textColor: 'text-slate-800' },
-        cta: { type: 'cta', title: '新增的行動呼籲', buttonText: '立即了解', buttonLink: 'https://www.google.com', bgColor: 'bg-indigo-600', textColor: 'text-white' },
+        image_with_text: { type: 'image_with_text', title: '新增的功能區塊', content: '介紹一個新功能或特色。', imageUrl: 'https://placehold.co/600x400/334155/ffffff?text=新增功能', layout: 'image-left', bgColor: 'bg-slate-50', textColor: 'text-slate-800' },
+        cta: { type: 'cta', title: '新增的行動呼籲', buttonText: '立即了解', buttonLink: 'https://www.google.com', bgColor: 'bg-indigo-600', textColor: 'text-white', layout: 'centered' },
     };
     
-    // 常用的顏色選項
-    const colorOptions = [
-      'bg-white',
-      'bg-slate-100',
-      'bg-gray-800',
-      'bg-indigo-600',
-      'bg-teal-600',
-      'text-black',
-      'text-white',
-      'text-slate-800',
+    // 預設的 20 種背景顏色選項
+    const bgColorOptions = [
+      'bg-white', 'bg-slate-50', 'bg-gray-100', 'bg-zinc-200', 'bg-stone-300',
+      'bg-red-100', 'bg-orange-100', 'bg-amber-100', 'bg-yellow-100', 'bg-lime-100',
+      'bg-green-100', 'bg-emerald-100', 'bg-teal-100', 'bg-cyan-100', 'bg-sky-100',
+      'bg-blue-100', 'bg-indigo-100', 'bg-violet-100', 'bg-purple-100', 'bg-fuchsia-100'
+    ];
+    
+    // 預設的文字顏色選項
+    const textColorOptions = [
+      'text-black', 'text-white', 'text-slate-800', 'text-gray-600', 'text-indigo-600'
     ];
 
-    // 新增 Colorpack 資料
+    // Colorpack 資料
     const colorPacks = [
       {
         id: 'cp-default',
@@ -152,6 +198,66 @@
           textAccent: 'text-white',
         }
       },
+      {
+        id: 'cp-vibrant',
+        name: '活潑多彩',
+        colors: {
+          bgPrimary: 'bg-cyan-50',
+          textPrimary: 'text-cyan-900',
+          bgSecondary: 'bg-fuchsia-100',
+          textSecondary: 'text-fuchsia-900',
+          bgAccent: 'bg-rose-500',
+          textAccent: 'text-white',
+        }
+      },
+      {
+        id: 'cp-ocean',
+        name: '海洋藍',
+        colors: {
+          bgPrimary: 'bg-blue-50',
+          textPrimary: 'text-blue-950',
+          bgSecondary: 'bg-sky-100',
+          textSecondary: 'text-sky-950',
+          bgAccent: 'bg-blue-600',
+          textAccent: 'text-white',
+        }
+      },
+      {
+        id: 'cp-forest',
+        name: '森林綠',
+        colors: {
+          bgPrimary: 'bg-green-50',
+          textPrimary: 'text-green-950',
+          bgSecondary: 'bg-emerald-100',
+          textSecondary: 'text-emerald-950',
+          bgAccent: 'bg-green-700',
+          textAccent: 'text-white',
+        }
+      },
+      {
+        id: 'cp-modern',
+        name: '都會時尚',
+        colors: {
+          bgPrimary: 'bg-neutral-50',
+          textPrimary: 'text-neutral-900',
+          bgSecondary: 'bg-zinc-200',
+          textSecondary: 'text-zinc-900',
+          bgAccent: 'bg-zinc-700',
+          textAccent: 'text-white',
+        }
+      },
+      {
+        id: 'cp-elegant',
+        name: '典雅紫',
+        colors: {
+          bgPrimary: 'bg-purple-50',
+          textPrimary: 'text-purple-950',
+          bgSecondary: 'bg-purple-100',
+          textSecondary: 'text-purple-950',
+          bgAccent: 'bg-purple-800',
+          textAccent: 'text-white',
+        }
+      },
     ];
     
     // 輔助函式：判斷顏色值是 Tailwind 類別還是 RGB
@@ -171,26 +277,85 @@
         }
         return null;
     };
-
+    
     // UI 組件
-    const HeroBlock = ({ block }) => (
-      <section 
-        className={`${getColorClass(block.bgColor)} ${getColorClass(block.textColor)} p-8 md:p-16 text-center`}
-        style={{
-          backgroundColor: getRgbStyle(block.bgColor),
-          color: getRgbStyle(block.textColor),
-        }}
-      >
-        <div className="container mx-auto">
-          <img src={block.imageUrl} alt="Hero" className="w-full h-auto rounded-lg shadow-lg mb-6"/>
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">{block.title}</h1>
-          <p className="text-lg md:text-xl mb-8">{block.subtitle}</p>
-          <a href={block.buttonLink} className="inline-block bg-white text-indigo-600 font-bold py-3 px-8 rounded-full shadow-lg hover:bg-gray-100 transition duration-300">
-            {block.buttonText}
-          </a>
-        </div>
-      </section>
-    );
+    const HeroBlock = ({ block }) => {
+        // 根據 layout 屬性渲染不同的排版
+        const renderLayout = () => {
+            switch(block.layout) {
+                case 'centered':
+                    return (
+                        <>
+                            <img src={block.imageUrl} alt="Hero" className="w-full h-auto rounded-lg shadow-lg mb-6"/>
+                            <h1 className="text-4xl md:text-5xl font-bold mb-4">{block.title}</h1>
+                            <p className="text-lg md:text-xl mb-8">{block.subtitle}</p>
+                            <a href={block.buttonLink} className="inline-block bg-white text-indigo-600 font-bold py-3 px-8 rounded-full shadow-lg hover:bg-gray-100 transition duration-300">
+                                {block.buttonText}
+                            </a>
+                        </>
+                    );
+                case 'image-left':
+                    return (
+                        <div className="flex flex-col md:flex-row items-center gap-8">
+                            <div className="md:w-1/2">
+                                <img src={block.imageUrl} alt="Hero" className="w-full h-auto rounded-lg shadow-lg"/>
+                            </div>
+                            <div className="md:w-1/2 text-center md:text-left">
+                                <h1 className="text-4xl md:text-5xl font-bold mb-4">{block.title}</h1>
+                                <p className="text-lg md:text-xl mb-8">{block.subtitle}</p>
+                                <a href={block.buttonLink} className="inline-block bg-white text-indigo-600 font-bold py-3 px-8 rounded-full shadow-lg hover:bg-gray-100 transition duration-300">
+                                    {block.buttonText}
+                                </a>
+                            </div>
+                        </div>
+                    );
+                case 'image-right':
+                    return (
+                        <div className="flex flex-col md:flex-row-reverse items-center gap-8">
+                            <div className="md:w-1/2">
+                                <img src={block.imageUrl} alt="Hero" className="w-full h-auto rounded-lg shadow-lg"/>
+                            </div>
+                            <div className="md:w-1/2 text-center md:text-left">
+                                <h1 className="text-4xl md:text-5xl font-bold mb-4">{block.title}</h1>
+                                <p className="text-lg md:text-xl mb-8">{block.subtitle}</p>
+                                <a href={block.buttonLink} className="inline-block bg-white text-indigo-600 font-bold py-3 px-8 rounded-full shadow-lg hover:bg-gray-100 transition duration-300">
+                                    {block.buttonText}
+                                </a>
+                            </div>
+                        </div>
+                    );
+                case 'text-overlay':
+                    return (
+                        <div className="relative">
+                            <img src={block.imageUrl} alt="Hero" className="w-full h-auto rounded-lg shadow-lg"/>
+                            <div className="absolute inset-0 bg-black bg-opacity-50 rounded-lg flex flex-col justify-center items-center p-8">
+                                <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white text-center">{block.title}</h1>
+                                <p className="text-lg md:text-xl mb-8 text-white text-center">{block.subtitle}</p>
+                                <a href={block.buttonLink} className="inline-block bg-white text-indigo-600 font-bold py-3 px-8 rounded-full shadow-lg hover:bg-gray-100 transition duration-300">
+                                    {block.buttonText}
+                                </a>
+                            </div>
+                        </div>
+                    );
+                default:
+                    return null;
+            }
+        };
+
+        return (
+            <section 
+                className={`${getColorClass(block.bgColor)} ${getColorClass(block.textColor)} p-8 md:p-16 ${block.layout !== 'text-overlay' ? 'text-center' : ''}`}
+                style={{
+                    backgroundColor: getRgbStyle(block.bgColor),
+                    color: getRgbStyle(block.textColor),
+                }}
+            >
+                <div className="container mx-auto">
+                    {renderLayout()}
+                </div>
+            </section>
+        );
+    };
     
     const TextBlock = ({ block }) => (
       <section 
@@ -215,7 +380,7 @@
           color: getRgbStyle(block.textColor),
         }}
       >
-        <div className={`container mx-auto flex flex-col ${block.reverse ? 'md:flex-row-reverse' : 'md:flex-row'} items-center gap-8`}>
+        <div className={`container mx-auto flex flex-col ${block.layout === 'image-right' ? 'md:flex-row-reverse' : 'md:flex-row'} items-center gap-8`}>
           <div className="md:w-1/2">
             <img src={block.imageUrl} alt="Feature" className="w-full h-auto rounded-lg shadow-lg"/>
           </div>
@@ -229,13 +394,13 @@
     
     const CtaBlock = ({ block }) => (
       <section 
-        className={`${getColorClass(block.bgColor)} ${getColorClass(block.textColor)} p-8 md:p-16 text-center`}
+        className={`${getColorClass(block.bgColor)} ${getColorClass(block.textColor)} p-8 md:p-16`}
         style={{
           backgroundColor: getRgbStyle(block.bgColor),
           color: getRgbStyle(block.textColor),
         }}
       >
-        <div className="container mx-auto">
+        <div className={`container mx-auto ${block.layout === 'text-left' ? 'text-left' : 'text-center'}`}>
           <h2 className="text-3xl md:text-4xl font-bold mb-6">{block.title}</h2>
           <a href={block.buttonLink} className="inline-block bg-white text-indigo-600 font-bold py-3 px-8 rounded-full shadow-lg hover:bg-gray-100 transition duration-300">
             {block.buttonText}
@@ -251,6 +416,7 @@
       const [activeBlockIndex, setActiveBlockIndex] = useState(0);
       const [draggedItemIndex, setDraggedItemIndex] = useState(null);
       const [isAddBlockModalOpen, setIsAddBlockModalOpen] = useState(false);
+      const [isLayoutModalOpen, setIsLayoutModalOpen] = useState(false); // 新增狀態來控制版面配置 Modal
       
       const previewRef = useRef(null); 
       
@@ -277,6 +443,17 @@
           [name]: value,
         };
         setCurrentContent(newContent);
+      };
+      
+      // 更新區塊版面配置
+      const handleLayoutChange = (layout) => {
+        const newContent = [...currentContent];
+        newContent[activeBlockIndex] = {
+          ...newContent[activeBlockIndex],
+          layout,
+        };
+        setCurrentContent(newContent);
+        setIsLayoutModalOpen(false); // 關閉 Modal
       };
 
       // 應用 Colorpack 到所有區塊
@@ -433,40 +610,37 @@
       const activeBlock = currentContent[activeBlockIndex];
 
       // 新增區塊的 Modal Component
-      const AddBlockModal = ({ onAdd, onClose }) => (
-        <div className="modal-overlay" onClick={onClose}>
-          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <h3 className="text-2xl font-bold mb-4 text-slate-700">選擇要新增的區塊</h3>
-            <div className="grid grid-cols-2 gap-4">
-              <button 
-                onClick={() => onAdd('hero')} 
-                className="py-4 px-4 bg-purple-500 text-white rounded-lg font-bold hover:bg-purple-600 transition-colors duration-200"
-              >
-                主圖區塊
-              </button>
-              <button 
-                onClick={() => onAdd('text')} 
-                className="py-4 px-4 bg-purple-500 text-white rounded-lg font-bold hover:bg-purple-600 transition-colors duration-200"
-              >
-                文字區塊
-              </button>
-              <button 
-                onClick={() => onAdd('image_with_text')} 
-                className="py-4 px-4 bg-purple-500 text-white rounded-lg font-bold hover:bg-purple-600 transition-colors duration-200"
-              >
-                圖文區塊
-              </button>
-              <button 
-                onClick={() => onAdd('cta')} 
-                className="py-4 px-4 bg-purple-500 text-white rounded-lg font-bold hover:bg-purple-600 transition-colors duration-200"
-              >
-                CTA區塊
-              </button>
+      const AddBlockModal = ({ onAdd, onClose }) => {
+        const blockOptions = [
+          { type: 'hero', name: '主圖區', icon: <i className="fas fa-image fa-2x"></i> },
+          { type: 'text', name: '文字區', icon: <i className="fas fa-align-left fa-2x"></i> },
+          { type: 'image_with_text', name: '圖文區', icon: <i className="fas fa-columns fa-2x"></i> },
+          { type: 'cta', name: 'CTA區', icon: <i className="fas fa-arrow-up-right-from-square fa-2x"></i> },
+        ];
+        
+        return (
+          <div className="modal-overlay" onClick={onClose}>
+            <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+              <h3 className="text-2xl font-bold mb-6 text-slate-700">選擇要新增的區塊</h3>
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                {blockOptions.map(option => (
+                  <button 
+                    key={option.type}
+                    onClick={() => onAdd(option.type)} 
+                    className="flex flex-col items-center justify-center p-4 rounded-lg bg-slate-50 border-2 border-slate-200 hover:bg-slate-100 transition-colors duration-200"
+                  >
+                    <div className="w-12 h-12 flex items-center justify-center text-slate-600">
+                        {option.icon}
+                    </div>
+                    <span className="mt-2 text-sm text-slate-600 font-medium">{option.name}</span>
+                  </button>
+                ))}
+              </div>
+              <button onClick={onClose} className="absolute top-2 right-4 text-gray-500 text-2xl hover:text-gray-700">&times;</button>
             </div>
-            <button onClick={onClose} className="absolute top-2 right-4 text-gray-500 text-2xl hover:text-gray-700">&times;</button>
           </div>
-        </div>
-      );
+        );
+      };
       
       // 確認刪除的 Modal Component
       const ConfirmModal = ({ onConfirm, onClose }) => (
@@ -491,6 +665,52 @@
           </div>
         </div>
       );
+
+      // 新增版面配置 Modal Component
+      const LayoutModal = ({ block, onLayoutChange, onClose }) => {
+        // 定義各區塊類型的版面配置選項
+        const layouts = {
+          hero: [
+            { name: '置中標準版', value: 'centered', icon: <i className="fas fa-align-center fa-2x"></i> },
+            { name: '左圖右文', value: 'image-left', icon: <i className="fas fa-grip-lines-vertical fa-2x"></i> },
+            { name: '右圖左文', value: 'image-right', icon: <i className="fas fa-grip-lines-vertical fa-flip-horizontal fa-2x"></i> },
+            { name: '文字覆蓋', value: 'text-overlay', icon: <i className="fas fa-image fa-2x"></i> },
+          ],
+          image_with_text: [
+            { name: '左圖右文', value: 'image-left', icon: <i className="fas fa-grip-lines-vertical fa-2x"></i> },
+            { name: '右圖左文', value: 'image-right', icon: <i className="fas fa-grip-lines-vertical fa-flip-horizontal fa-2x"></i> },
+          ],
+          cta: [
+            { name: '置中', value: 'centered', icon: <i className="fas fa-align-center fa-2x"></i> },
+            { name: '靠左', value: 'text-left', icon: <i className="fas fa-align-left fa-2x"></i> },
+          ],
+        };
+
+        const currentLayouts = layouts[block.type] || [];
+        
+        return (
+          <div className="modal-overlay" onClick={onClose}>
+            <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+              <h3 className="text-2xl font-bold mb-4 text-slate-700">選擇 {block.type} 區塊的排版</h3>
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                {currentLayouts.map(layout => (
+                  <button 
+                    key={layout.value}
+                    onClick={() => onLayoutChange(layout.value)}
+                    className={`flex flex-col items-center justify-center p-4 rounded-lg border-2 transition-colors duration-200 ${block.layout === layout.value ? 'bg-indigo-100 border-indigo-500' : 'bg-slate-50 border-slate-200 hover:bg-slate-100'}`}
+                  >
+                    <div className="w-10 h-10 flex items-center justify-center text-slate-600">
+                        {layout.icon}
+                    </div>
+                    <span className="mt-2 text-sm text-slate-600 font-medium">{layout.name}</span>
+                  </button>
+                ))}
+              </div>
+              <button onClick={onClose} className="absolute top-2 right-4 text-gray-500 text-2xl hover:text-gray-700">&times;</button>
+            </div>
+          </div>
+        );
+      };
     
       return (
         <div className="font-sans antialiased text-slate-800 bg-gray-50 min-h-screen flex flex-col lg:flex-row">
@@ -554,11 +774,11 @@
                 <div className="p-4 bg-slate-50 rounded-lg">
                   <h3 className="font-bold text-lg mb-4 capitalize">{activeBlock.type} 區塊內容</h3>
                   
-                  {/* 顏色選項 */}
+                  {/* 背景顏色選項 */}
                   <div className="mb-4">
                     <label className="block text-sm font-medium text-slate-500 mb-1">背景顏色 (bgColor)</label>
-                    <div className="flex flex-wrap gap-2 mb-2">
-                      {colorOptions.slice(0, 5).map(colorClass => (
+                    <div className="grid grid-cols-5 gap-2 mb-2">
+                      {bgColorOptions.map(colorClass => (
                         <button 
                           key={colorClass}
                           onClick={() => handleContentChange({ target: { name: 'bgColor', value: colorClass } })}
@@ -576,16 +796,17 @@
                     />
                   </div>
 
+                  {/* 文字顏色選項 */}
                   <div className="mb-4">
                     <label className="block text-sm font-medium text-slate-500 mb-1">文字顏色 (textColor)</label>
                     <div className="flex flex-wrap gap-2 mb-2">
-                       {colorOptions.slice(5, 8).map(colorClass => (
+                       {textColorOptions.map(colorClass => (
                         <button 
                           key={colorClass}
                           onClick={() => handleContentChange({ target: { name: 'textColor', value: colorClass } })}
-                          className={`w-8 h-8 rounded-full border-2 transition-colors flex items-center justify-center ${activeBlock.textColor === colorClass ? 'border-indigo-500' : 'border-gray-300'} ${colorClass.includes('black') ? 'bg-black' : colorClass} ${colorClass.includes('white') ? 'bg-white border-gray-400' : ''}`}
+                          className={`w-8 h-8 rounded-full border-2 transition-colors flex items-center justify-center ${activeBlock.textColor === colorClass ? 'border-indigo-500' : 'border-gray-300'} ${colorClass.includes('black') ? 'bg-black' : (colorClass.includes('white') ? 'bg-white' : 'bg-gray-200')} ${colorClass.includes('white') ? 'border-gray-400' : ''}`}
                         >
-                          <i className={`fas fa-font ${colorClass.includes('white') ? 'text-black' : (colorClass.includes('black') ? 'text-white' : 'text-slate-800')}`}></i>
+                          <i className={`fas fa-font ${colorClass.includes('white') ? 'text-black' : (colorClass.includes('black') ? 'text-white' : colorClass)}`}></i>
                         </button>
                       ))}
                     </div>
@@ -601,7 +822,7 @@
 
                   {Object.keys(activeBlock).map(key => {
                     // 排除不應編輯的屬性
-                    if (['type', 'bgColor', 'textColor', 'reverse'].includes(key)) return null;
+                    if (['type', 'bgColor', 'textColor', 'layout'].includes(key)) return null;
                     
                     // 針對 imageUrl 屬性提供圖片上傳輸入框
                     if (key === 'imageUrl') {
@@ -679,6 +900,15 @@
                     className={`block-wrapper relative cursor-grab transition duration-200 ${draggedItemIndex === index ? 'dragging' : ''} ${activeBlockIndex === index ? 'active-border border-4 border-indigo-500 border-dashed rounded-lg' : ''}`}
                   >
                     <div className="hover-controls absolute top-2 right-2 p-1 bg-white rounded-full shadow-md z-10 flex gap-1">
+                      {/* 新增版面配置按鈕 */}
+                      {activeBlockIndex === index && ['hero', 'image_with_text', 'cta'].includes(block.type) && (
+                        <button 
+                          onClick={(e) => { e.stopPropagation(); setIsLayoutModalOpen(true); }}
+                          className="w-8 h-8 flex items-center justify-center text-blue-500 hover:text-blue-700 transition"
+                        >
+                          <i className="fas fa-layer-group"></i>
+                        </button>
+                      )}
                       <button 
                         onClick={(e) => { e.stopPropagation(); handleDeleteBlock(index); }}
                         className="w-8 h-8 flex items-center justify-center text-red-500 hover:text-red-700 transition"
@@ -725,6 +955,15 @@
           {/* 確認刪除 Modal */}
           {isConfirmModalOpen && (
             <ConfirmModal onConfirm={handleConfirmDelete} onClose={() => setIsConfirmModalOpen(false)}/>
+          )}
+
+          {/* 版面配置 Modal */}
+          {isLayoutModalOpen && (
+            <LayoutModal 
+              block={activeBlock}
+              onLayoutChange={handleLayoutChange}
+              onClose={() => setIsLayoutModalOpen(false)}
+            />
           )}
         </div>
       );
